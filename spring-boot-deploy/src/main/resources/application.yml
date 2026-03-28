@@ -1,0 +1,58 @@
+# 실행 프로파일 선택 (local / blue / green)
+# local  → 개발 환경 (포트 8080)
+# blue   → 운영 Blue 서버 (포트 8080)
+# green  → 운영 Green 서버 (포트 9090)
+spring:
+  profiles:
+    active: local
+    group:
+      local: local_server, common, secret
+      blue: blue_server, common, secret
+      green: green_server, common, secret
+
+---
+
+# ── Local 서버 설정 ───────────────────────────────────────────────────
+spring:
+  config:
+    activate:
+      on-profile: local_server
+server:
+  port: 8080
+client:
+  address: http://localhost:3000  # 프론트엔드 주소 (CORS 허용 대상)
+
+---
+
+# ── Blue 서버 설정 (운영 1번 서버) ───────────────────────────────────
+spring:
+  config:
+    activate:
+      on-profile: blue_server
+server:
+  port: 8080
+client:
+  address: http://localhost:3000
+
+---
+
+# ── Green 서버 설정 (운영 2번 서버, Blue/Green 배포 시 전환 대상) ────
+spring:
+  config:
+    activate:
+      on-profile: green_server
+server:
+  port: 9090
+client:
+  address: http://localhost:3000
+
+---
+
+# ── 공통 설정 ─────────────────────────────────────────────────────────
+spring:
+  config:
+    activate:
+      on-profile: common
+mybatis:
+  mapper-locations:
+    - mappers/*.xml
