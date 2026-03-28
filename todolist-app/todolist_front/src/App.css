@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Nanumpen";
+    src: url("./fonts/NanumPen.ttf");
+}
+
+@font-face {
+    font-family: "NanumBarunpenR";
+    src: url("./fonts/NanumBarunpenR.ttf");
+}
+
+@font-face {
+    font-family: "NanumBarunpenB";
+    src: url("./fonts/NanumBarunpenB.ttf");
+}
+
+@font-face {
+    font-family: "NanumGyuriDiary";
+    src: url("./fonts/나눔손글씨\ 규리의\ 일기.ttf");
+}
