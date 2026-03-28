@@ -1,6 +1,6 @@
 # Programming Basics
 
-Programming fundamentals practice organized by category.
+Java · Spring Boot · React · SQL 기초부터 심화까지 학습 자료 모음
 
 ## Categories
 
@@ -31,3 +31,10 @@ Programming fundamentals practice organized by category.
 - **Database** — MySQL, JDBC, H2
 - **Backend** — Spring Boot, MyBatis, Spring Security, JWT, OAuth2
 - **Infra** — Docker, Blue/Green Deployment
+
+## Contributors
+
+| | Name | Role |
+|--|------|------|
+| 👤 | [gyeolhwi](https://github.com/gyeolhwi) | Developer |
+| 🤖 | Claude (Anthropic) | AI Pair Programmer — 코드 정리, 구조화, 민감정보 처리 보조 |
