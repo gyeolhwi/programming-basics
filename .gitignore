@@ -44,7 +44,6 @@ build/
 # Spring Boot
 *.pid
 spring-shell.log
-**/application-secret.yml
 
 # VS Code
 .vscode/
