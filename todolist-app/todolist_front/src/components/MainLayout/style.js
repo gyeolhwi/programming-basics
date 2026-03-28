@@ -1,10 +1,54 @@
 import { css } from "@emotion/react";
 
-export const layout =css`
-    position: relative;
+export const layout = css`
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 100%;
-    overflow-y: auto;
-`
+`;
+
+export const frame = css`
+    /* box-sizing: border-box;  휴대폰해상도 크기 반영*/
+    position: relative;
+    border: 5px solid #000000;
+    border-radius: 40px;
+    width: 375px;
+    height: 812px;
+    background-color: white;
+    overflow: hidden;
+`;
+
+export const topBar = css`
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+`;
+export const topBarCenter = css`
+    border-radius: 20px;
+    width: 36%;
+    height: 30px;
+    background-color: black;
+`;
+export const clock = css`
+    display: flex;
+    justify-content: center;
+    width: 32%;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: default;
+`;
+export const rightItems = css`
+    display: flex;
+    justify-content: center;
+    width: 32%;
+    & *:nth-of-type(2){
+        margin: 0 5px;
+    }
+
+`;

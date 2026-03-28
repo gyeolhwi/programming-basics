@@ -2,130 +2,72 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.toyproject.todolist.repository.TodoMapper">
+<mapper namespace="com.study.todolist.repository.TodoMapper">
 
-    <insert id="save" parameterType="com.toyproject.todolist.entity.Todo">
+    <insert id="save">
         insert into
-        todo_tb
-        values
-            (0, 1, #{todo_text}, 0, #{todo_date})
+            todolist_study_tb
+        values(
+            0,
+            0,
+            #{title},
+            #{content},
+            #{important},
+            #{busy},
+            1,
+            #{todoDateTime},
+            now(),
+            now()
+        )
     </insert>
-
-    <select id="getListAll" resultType="com.toyproject.todolist.entity.Todo">
+    <select id="findAll" resultType="com.study.todolist.entity.Todo">
         select
-            tt.todo_id,
-            tt.todo_text,
-            tt.todo_chk_id
-        from
-            todo_tb tt
-            left outer join user_tb ut on (tt.todo_user_id = ut.user_id)
-        where
-            ut.user_id = #{userId}
-        order by
-             tt.todo_id asc
-    </select>
-    <!-- 전체조회-->
-    <select id="getAllList" resultType="com.toyproject.todolist.entity.Todo">
-        select
-            *
+            todoId,
+            userId,
+            title,
+            content,
+            important,
+            busy,
+            status,
+            todoDateTime
         from
             todo_tb
         order by
-            todo_id desc
+            todoDateTime;
     </select>
-
-    <!-- 전체 조회-->
-    <select id="getAllTodoList" resultType="com.toyproject.todolist.entity.Todo">
+    <select id="getTodoCounts" resultType="com.study.todolist.entity.TodoCounts">
         select
-            *
+            (select
+                count(*)
         from
             todo_tb
         where
-            todo_date LIKE concat("%", #{month}, "%")
-        order by
-            todo_id desc
+            status = 1)as 'all',
+        (select
+            count(*)
+        from
+            todo_tb
+        where
+            status = 1
+                and todoDateTime like concat(substring(now(),1,10),"%")) as `today`,
+        (select
+            count(*)
+        from
+            todo_tb
+        where
+            important = 1)as 'important',
+        (select
+            count(*)
+        from
+            todo_tb
+        where
+            busy = 1)as 'busy',
+        (select
+            count(*)
+        from
+            todo_tb
+        where
+            status = 2)as 'complete';
+
     </select>
-
-
-
-    <update id="update">
-        update todo_tb
-        set
-            todo_text = #{todo_text}
-<!--            todo_chk_id = #{todo_chk_id},-->
-<!--            todo_date = #{todo_date}-->
-        where
-            todo_id = #{todo_id}
-    </update>
-
-
-    <delete id="delete" parameterType="com.toyproject.todolist.entity.Todo">
-        delete
-        from
-            todo_tb tt
-        where
-            tt.todo_id = #{todo_id}
-    </delete>
-
-
-
-
-
-<!-- 로그인 후 구현-->
-    <select id="getList" resultType="com.toyproject.todolist.entity.Todo">
-        select
-            todo_id,
-            todo_text,
-            todo_chk_id
-        from
-            todo_tb
-        where
-            todo_user_id = #{todo_user_id}
-        and #{date} between DATE_ADD(NOW(), INTERVAL -1 MONTH ) AND NOW();
-    </select>
-<!-- 해당날짜에 해당하는 모든 것 들고오기 -->
-    <select id="getDateList" resultType="com.toyproject.todolist.entity.Todo">
-        select
-            *
-        from
-            todo_tb
-        where
-            todo_date = #{today}
-    </select>
-
-    <insert id="add">
-        insert into
-            todo_tb
-        values
-        (0, #{todo_user_id}, #{todo_text}, 0, now());
-    </insert>
-
-    <update id="edit" parameterType="com.toyproject.todolist.entity.Todo">
-        update
-            todo_tb
-        set
-            todo_text = #{todo_text}
-        where
-            todo_id = #{todo_id};
-    </update>
-
-    <update id="editChk" parameterType="com.toyproject.todolist.entity.Todo">
-        update
-            todo_tb
-        set
-            todo_chk_id = #{todo_chk_id}
-        where
-            todo_id = #{todo_id}
-    </update>
-
-<!-- 체크 시에 업데이트 요청  -->
-    <update id="updateChk">
-        update
-            todo_tb
-        set
-            todo_chk_id = #{todo_chk_id}
-        where
-             todo_id = #{todo_id}
-    </update>
-
 </mapper>

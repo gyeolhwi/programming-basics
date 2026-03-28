@@ -1,11 +1,17 @@
 import { css } from "@emotion/react";
 
-export const container =css`
+export const container = css`
     position: relative;
-    flex-grow: 1;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    padding: 20px;
-`
+    flex-direction: column;
+    padding-top: 45px;
+    padding-bottom: 15px;
+    height: 100%;
+    background-color: #efefef;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    
+`;
