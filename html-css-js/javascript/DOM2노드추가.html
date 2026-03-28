@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM2 노드추가 삭제</title>
+</head>
+<body>
+    <div class="main-box">
+        
+    </div>
+    
+    <script>
+        // 태그 생성
+        const addButton = document.createElement("button");
+        // 텍스트 속성 생성
+        const addText = document.createTextNode("추가");
+        // 태그에 "추가" 텍스트를 추가
+        addButton.append(addText);
+
+        const mainBox = document.querySelector(".main-box");
+
+        mainBox.appendChild(addButton);
+        /*
+            두개 다 같음
+        */        
+        mainBox.innerHTML += `<button>추가2</button>`;
+        console.log(mainBox.querySelector("button").parentNode);
+        mainBox.removeChild(mainBox.querySelector("button")); // 왜 하나만 지워지나여 -> 등호 안 쓰면 무조건 첫번째 꺼 들고옴
+
+
+    </script>
+</body>
+</html>

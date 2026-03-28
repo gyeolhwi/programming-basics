@@ -1,0 +1,34 @@
+import { useState } from "react";
+
+// export function useInput(defaultValue) {
+//     const [value, setValue] = useState(defaultValue);
+//     const onChange = (e) => {
+//         setValue(e.target.value);
+//     }
+//     return {
+//         value,
+//         setValue,
+//         onChange
+//         // "value": value,
+//         // "setValue": setValue,
+//         // "onChange" : onChange
+//     }
+// }
+
+export function useInput(defaultValue, length) {
+    const [value, setValue] = useState(defaultValue);
+    const onChange = (e) => {
+        if (e.target.value.length < length + 1) {
+            setValue(e.target.value);
+        }
+
+    }
+    return {
+        value,
+        setValue,
+        onChange
+        // "value": value
+        // "setValue": setValue,
+        // "onChange" : onChange
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position연습</title>
+    <style>
+        .username-input-box {
+            position: relative;
+            width: 500px;
+            height: 50px;
+        }
+
+        .username-input {
+            box-sizing: border-box;
+            border-radius: 6px;
+            outline: none;
+            border: 1px solid #dbdbdb;
+            padding: 10px 90px 10px 10px;
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+        }
+
+        .duplicate-button {
+            transform: translateY(-50%);
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #dbdbdb;
+            padding: 5px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .box{
+            box-sizing: border-box;
+            /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,61,110,1) 51%, rgba(0,212,255,1) 100%); */
+            background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(65,61,110,1) 51%, rgba(0,212,255,1) 100%);
+            background-clip: padding-box;
+            background-clip: border-box;
+
+            margin: 50px;
+            padding: 3px ;
+            border: 50px dashed rgb(50, 241, 91);
+            /* border: 50px solid black; */
+            /* border: 50px solid red; */
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="username-input-box">
+        <input type="text" id="username" class="username-input">
+        <button class="duplicate-button">중복확인</button>
+    </div>
+    <div class="box"></div>
+</body>
+
+</html>

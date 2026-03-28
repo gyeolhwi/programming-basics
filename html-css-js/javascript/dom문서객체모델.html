@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체모델</title>
+</head>
+
+<body>
+    <div class="main-box">
+        <div id="input1">
+            <input type="text">
+        </div>
+        <div id="input2">
+            <input type="text">
+        </div>
+    </div>
+    <div>
+        <button onclick="handleBtnClick(event)">확인</button>
+    </div>
+    <script>
+        const print = (data) => console.log(data);
+        // 겟엘리먼츠 복수형 -> 리스트로 들고오겠다 몇번째 인덱스인지 정해줘야함
+        const bodyList = document.getElementsByTagName("body");
+        const body = bodyList[0]
+        const divList = document.getElementsByTagName("div");
+        // 클래스명으로 들고온다고 이미 지정해주기 때문에 . 안 찍어도 됨
+        const mainBoxList = body.getElementsByClassName("main-box");
+
+        const input1 = mainBoxList[0].getElementsByTagName("div")[0].getElementsByTagName("input")[0];
+        // ↑
+        // =
+        // ↓
+        const input1_1 = document.getElementsByTagName("input")[0];
+        // const input1_2 = document.getElementById("input1").getElementsByTagName("input")[0];
+        const [input1_1_1] = document.getElementById("input1").getElementsByTagName("input"); // 비구조할당
+
+
+        print(bodyList)
+        // 중괄호로 묶으면 객체이름이면서 key값으로 잡혀서 value를 불러온다
+        print({ body })
+        // 배열은 키값으로 묶어줄 수 없음 앞에 키값 넣어주면 됨
+        print({ divList: divList[0] })
+        print(mainBoxList);
+        print(input1_1_1);
+
+        // <<< QuerySelector >>>
+        const input1_1_1_1 = document.querySelector("body  #input1 > input"); // 표기법 질문
+        print(input1_1_1_1);
+
+        const inputList = document.querySelectorAll("input"); // 모든 input태그를 리스트로 가져오겠다
+        print(inputList);
+        const input1_1_1_1_1 = document.querySelector("input");
+
+        const button = document.querySelector("button");
+        print(button.getAttribute("onclick"))
+        print(button.setAttribute("onclick","alert('test')"));
+        // 태그에서 호출해서 사용하는 것이 아닌, 태그 객체를 가지고와서 자바스크립트에서 사용가능함
+        print(button.onclick);
+        button.onmouseover = (e) => handleBtOver(e);
+
+        function handleBtnClick(e) {
+            // alert(inputList[0].value + "\n" + inputList[1].value);
+            const [input_1, input_2] = document.querySelectorAll("input"); // 비구조할당
+            alert(`name : ${input_1.value}\nage : ${input_2.value}`);
+        }
+        function handleBtOver(e){
+            alert("mouse over");
+            print(e);
+        }
+
+    </script>
+</body>
+
+</html>

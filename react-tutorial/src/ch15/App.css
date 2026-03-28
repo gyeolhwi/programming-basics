@@ -1,0 +1,26 @@
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    height: auto;
+}
+
+.img-frame {
+    /* position: relative;
+    top: 100px; */
+    margin: 0 auto;
+    transform: translateY(50%);
+
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+
+    border: 1px solid #dbdbdb;
+
+    overflow: hidden;
+
+    &>img {
+        width: 100%;
+        height: auto;
+    }
+}

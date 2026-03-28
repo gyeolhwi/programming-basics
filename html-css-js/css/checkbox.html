@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox응용</title>
+    <style>
+        /* 
+            iunput[type="checkbox"] {
+            display: none;
+            }
+        */
+
+        .custom-chk {
+            display: none;
+        }
+
+        .custom-chk+label {
+            /* 
+                레이블 자체 -> 인라인 요소 너비 높이지정x 
+                글자처럼 취급이 가능하며 너비,높이 지정가능
+             */
+            /* display: inline-block; */
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            padding: 5px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        .custom-chk:checked+label {
+            background-clip: content-box;
+            background-color: #3ac7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="chk1" class="custom-chk">
+    <label for="chk1"></label>
+
+    <input type="checkbox" id="chk2" class="custom-chk">
+    <label for="chk2"></label>
+
+
+</body>
+
+</html>

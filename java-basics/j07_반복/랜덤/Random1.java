@@ -1,0 +1,16 @@
+package j07_반복.랜덤;
+
+public class Random1 {
+	public static void main(String[] args) {
+		
+//		System.out.println(Math.random());
+		int i = 0;
+	
+		while ( i < 10) {
+			double rNum = Math.random();
+			 rNum *= 1000;
+			System.out.println((int)rNum);
+			i++;
+		}
+	}
+}
