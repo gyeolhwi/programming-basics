@@ -2,6 +2,22 @@
 
 Java · Spring Boot · React · SQL 기초부터 심화까지 학습 자료 모음
 
+## 학습 로드맵 (Learning Roadmap)
+
+폴더가 많아 어디서부터 시작할지 막막하다면, 아래 순서대로 학습하는 것을 권장합니다.
+**언어 → DB → 순수 웹(Servlet) → 프레임워크(Spring) → 프론트(React) → 풀스택 결합 → 배포** 흐름으로,
+순수 방식을 먼저 겪고 프레임워크로 넘어가는 정석 순서입니다.
+
+| 단계 | 학습 순서 | 설명 |
+|------|-----------|------|
+| **1단계 · 언어 기초** | [java-basics](./java-basics/) → [java-advanced](./java-advanced/) | Java 문법부터 OOP·컬렉션·람다·스트림까지, 모든 것의 토대 |
+| **2단계 · 데이터베이스** | [sql](./sql/) → [java-dvd-app](./java-dvd-app/) | SQL로 데이터 다루기를 익히고, JDBC로 Java와 DB를 직접 연동 |
+| **3단계 · 웹 기초** | [html-css-js](./html-css-js/) → [servlet-dvd-app](./servlet-dvd-app/) → [servlet-auth-app](./servlet-auth-app/) | 프론트 기초 후 Servlet/JSP로 프레임워크 없이 웹의 원리를 체득 |
+| **4단계 · Spring Boot** | [springboot-rest-api](./springboot-rest-api/) → [spring-security-mybatis](./spring-security-mybatis/) → [spring-security-jpa](./spring-security-jpa/) | REST API로 시작해 Security·JWT·MyBatis·JPA로 백엔드 확장 |
+| **5단계 · React** | [react-tutorial](./react-tutorial/) → [react-crud](./react-crud/) → [react-auth-app](./react-auth-app/) | React 기초 학습 → CRUD 실습 → 인증까지 프론트엔드 심화 |
+| **6단계 · 풀스택 통합** | [board-app](./board-app/) → [todolist-app](./todolist-app/) | 백엔드와 프론트를 하나로 묶어 실제 서비스 형태로 완성 |
+| **7단계 · 배포** | [spring-boot-deploy](./spring-boot-deploy/) | Docker와 Blue/Green 무중단 배포로 운영 환경까지 경험 |
+
 ## Categories
 
 | Folder | Description |
